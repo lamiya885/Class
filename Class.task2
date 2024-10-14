@@ -1,0 +1,61 @@
+﻿namespace ConsoleApp3
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            NoteBook book = new NoteBook("Pavilion", 123, 1234, 3);
+            book.ShowFullData();
+        }
+    }
+
+    public class Product
+    {
+        public string name;
+        public string description;
+        public int count;
+        public bool IsStock;
+        public double price;
+        public Product(string name, int count, double price)
+        {
+            this.name = name;
+            this.count = count;
+            this.price = price;
+
+        }
+
+        public void Sale(bool isstock,int count)
+        {
+            IsStock = isstock;
+
+            if (count > 0)
+            {
+                IsStock = true;
+                Console.WriteLine($"{name}  mehsulu var!");
+            }
+            else
+            {
+                IsStock = false;
+                Console.WriteLine($"{name} mehulu yoxdur!");
+            }
+        }
+    }
+    public class NoteBook : Product
+    {
+        public byte RAM;
+        public int Storage;
+        public NoteBook(string name, int count, double price, byte ram) : base(name, count, price)
+        {
+            RAM = ram;
+           
+
+
+
+
+            public void ShowFullData()
+            {
+                Console.WriteLine($"name:{name},count:{count},is stock:{IsStock},price:{price},RAM:{ram},storage:{storage}");
+            }
+        }
+    }
+}

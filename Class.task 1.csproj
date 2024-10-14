@@ -1,0 +1,53 @@
+﻿
+using System.Reflection;
+
+namespace Class_task_1
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.WriteLine("avtomobil haqqinda melumatlari daxil edin:")
+            Car car=new Car();
+            car.Brand = Console.ReadLine();
+            car.Model = Console.ReadLine();
+            double.TryParse(Console.ReadLine(),out  car.Mile);
+            int.TryParse(Console.ReadLine(), out car.DoorsNum);
+            car.ShowFullInfo();
+
+            Console.WriteLine(" motor haqqinda melumatlari daxil edin:");
+            MotorCycle motorCycle = new MotorCycle();
+            motorCycle.Brand = Console.ReadLine();
+            motorCycle.Model = Console.ReadLine();
+            double.TryParse (Console.ReadLine(),out motorCycle.Mile);
+            int.TryParse(Console.ReadLine(), out motorCycle.WheelNum);
+            motorCycle.ShowFullInfo();
+        }
+        public class Vehincle
+        {
+            public string Brand;
+            public string Model;
+            public double Mile;
+        }
+        public class Car:Vehincle
+        {
+            public int DoorsNum;
+
+            public void ShowFullInfo()
+            {
+                Console.WriteLine($"brand:{Brand},model:{Model},mile:{Mile},doorsNum:{DoorsNum}");
+            }
+
+        }
+        public class MotorCycle : Vehincle
+        {
+            public int WheelNum;
+
+            public void ShowFullInfo()
+            {
+                Console.WriteLine($"brand:{Brand},model{Model},mile:{Mile},wheelNum:{WheelNum}");
+            }
+        }
+    }
+
+}
